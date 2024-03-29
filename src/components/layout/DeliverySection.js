@@ -1,5 +1,6 @@
 import Right from "@/components/icons/Right";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function DeliverySection() {
   return (
@@ -15,10 +16,12 @@ export default function DeliverySection() {
           Contamos con delivery por toda la zona!
         </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
+        <Link href={'/menu'}>
+          <button href={'/menu'} className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
             Ordenar ahora
             <Right />
           </button>
+          </Link>  
         </div>
       </div>
       <div className="relative hidden md:block">

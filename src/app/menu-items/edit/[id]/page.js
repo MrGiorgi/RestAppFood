@@ -43,8 +43,8 @@ export default function EditMenuItemPage() {
     });
 
     await toast.promise(savingPromise, {
-      loading: 'Saving this tasty item',
-      success: 'Saved',
+      loading: 'Guardando este sabroso artículo',
+      success: 'Guardado',
       error: 'Error',
     });
 
@@ -63,8 +63,8 @@ export default function EditMenuItemPage() {
     });
 
     await toast.promise(promise, {
-      loading: 'Deleting...',
-      success: 'Deleted',
+      loading: 'Eliminando...',
+      success: 'Eliminado',
       error: 'Error',
     });
 
@@ -76,11 +76,11 @@ export default function EditMenuItemPage() {
   }
 
   if (loading) {
-    return 'Loading user info...';
+    return 'Cargando la información del usuario...';
   }
 
   if (!data.admin) {
-    return 'Not an admin.';
+    return 'No eres un administrador.';
   }
 
   return (

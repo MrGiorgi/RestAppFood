@@ -46,10 +46,10 @@ export default function CategoriesPage() {
     });
     await toast.promise(creationPromise, {
       loading: editedCategory
-                 ? 'Updating category...'
-                 : 'Creating your new category...',
-      success: editedCategory ? 'Category updated' : 'Category created',
-      error: 'Error, sorry...',
+                 ? 'Actualizando categoría...'
+                 : 'Creando tu nueva categoría...',
+      success: editedCategory ? 'Categoría actualizada' : 'Categoría creada',
+      error: 'Error, Lo siento...',
     });
   }
 
@@ -66,8 +66,8 @@ export default function CategoriesPage() {
     });
 
     await toast.promise(promise, {
-      loading: 'Deleting...',
-      success: 'Deleted',
+      loading: 'Eliminando...',
+      success: 'Eliminado',
       error: 'Error',
     });
 
@@ -75,11 +75,11 @@ export default function CategoriesPage() {
   }
 
   if (profileLoading) {
-    return 'Loading user info...';
+    return 'Cargando la información del usuario...';
   }
 
   if (!profileData.admin) {
-    return 'Not an admin';
+    return 'No eres un administrador.';
   }
 
   return (
@@ -130,10 +130,10 @@ export default function CategoriesPage() {
                         setCategoryName(c.name);
                       }}
               >
-                Edit
+                Editar
               </button>
               <DeleteButton
-                label="Delete"
+                label="Eliminar"
                 onDelete={() => handleDeleteClick(c._id)} />
             </div>
           </div>

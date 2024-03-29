@@ -1,8 +1,8 @@
-import {cartProductPrice, indexToRemove} from "@/components/AppContext";
+import {cartProductPrice} from "@/components/AppContext";
 import Trash from "@/components/icons/Trash";
 import Image from "next/image";
 
-export default function CartProducts({product,onRemove}) {
+export default function CartProducts({product,onRemove, indexToRemove}) {
   return (
     <div className="flex items-center gap-4 border-b py-4">
       <div className="w-24">

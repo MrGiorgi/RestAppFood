@@ -47,15 +47,15 @@ export default function ProfilePage() {
     });
 
     await toast.promise(savingPromise, {
-      loading: 'Saving...',
-      success: 'Profile saved!',
+      loading: 'Guardando...',
+      success: 'Perfil guardado',
       error: 'Error',
     });
 
   }
 
   if (status === 'loading' || !profileFetched) {
-    return 'Loading...';
+    return 'Cargando...';
   }
 
   if (status === 'unauthenticated') {

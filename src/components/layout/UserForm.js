@@ -40,7 +40,7 @@ export default function UserForm({user,onSave}) {
         }
       >
         <label>
-        Nombre y apellido
+        Nombre y Apellido
         </label>
         <input
           type="text" placeholder="Nombre y apellido"

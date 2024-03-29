@@ -23,7 +23,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
           />
         </div>
         <div>
-          <label>City</label>
+          <label>Ciudad</label>
           <input
             disabled={disabled}
             type="text" placeholder="Ciudad"

@@ -66,16 +66,16 @@ export default function CartPage() {
     });
 
     await toast.promise(promise, {
-      loading: 'Preparing your order...',
-      success: 'Redirecting to payment...',
-      error: 'Something went wrong... Please try again later',
+      loading: 'Preparando orden...',
+      success: 'Redirecionando para pagar...',
+      error: 'Ha ocurrido un error, por favor intente más tarde...',
     })
   }
 
   if (cartProducts?.length === 0) {
     return (
       <section className="mt-8 text-center">
-        <SectionHeaders mainHeader="Cart" />
+        <SectionHeaders mainHeader="Carrito de pedidos" />
         <p className="mt-4">Su carrito está vacío... 😔</p>
       </section>
     );

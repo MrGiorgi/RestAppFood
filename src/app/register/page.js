@@ -57,13 +57,13 @@ export default function RegisterPage() {
           Registrarse
         </button>
         <div className="my-4 text-center text-gray-500">
-          Iniciar sesión con un proveedor
+          Registrarse con un proveedor
         </div>
         <button
           onClick={() => signIn('google', {callbackUrl:'/'})}
           className="flex gap-4 justify-center">
           <Image src={'/google.png'} alt={''} width={24} height={24} />
-          Iniciar sesión con Google
+          Registrarse con Google
         </button>
         <div className="text-center my-4 text-gray-500 border-t pt-4">
         ¿Cuenta existente?{' '}

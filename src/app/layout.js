@@ -1,10 +1,10 @@
 import {AppProvider} from "@/components/AppContext";
 import Header from "@/components/layout/Header";
-import { Roboto } from 'next/font/google'
+import { Nunito } from "next/font/google";
 import './globals.css'
 import {Toaster} from "react-hot-toast";
 
-const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'] })
+const font = Nunito({ subsets: ['latin'], weight: ['400', '500', '700'] })
 
 export const metadata = {
   title: 'RestApp',
@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={roboto.className}>
+      <body className={font.className}>
         <main className="max-w-4xl mx-auto p-4">
           <AppProvider>
             <Toaster />
