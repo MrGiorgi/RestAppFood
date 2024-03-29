@@ -35,13 +35,15 @@ export function AppProvider({children}) {
   }
 
   function removeCartProduct(indexToRemove) {
+    console.log("IndexToRemove", indexToRemove)
     setCartProducts(prevCartProducts => {
+      console.log("prevCartProducts", prevCartProducts);
       const newCartProducts = prevCartProducts
-        .filter((v,index) => index !== indexToRemove);
+        .filter((v,indexToRemove) => indexToRemove);
       saveCartProductsToLocalStorage(newCartProducts);
       return newCartProducts;
     });
-    toast.success('Product removed');
+    toast.success('Se ha removido correctamente.');
   }
 
   function saveCartProductsToLocalStorage(cartProducts) {
@@ -57,6 +59,7 @@ export function AppProvider({children}) {
       saveCartProductsToLocalStorage(newProducts);
       return newProducts;
     });
+    toast.success('Se ha agregado correctamente.');
   }
 
   return (
