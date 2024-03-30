@@ -114,7 +114,7 @@ export default function CategoriesPage() {
           </div>
         </div>
       </form>
-      <div>
+      <div className="overflow-y-scroll p-2" style={{maxHeight:'calc(100vh - 100px)'}}>
         <h2 className="mt-8 text-sm text-gray-500">Categorías existentes</h2>
         {categories?.length > 0 && categories.map(c => (
           <div

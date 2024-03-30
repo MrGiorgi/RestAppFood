@@ -1,7 +1,8 @@
 'use client';
-import SectionHeaders from "@/components/layout/SectionHeaders";
+import DeleteButton from "@/components/DeleteButton";
 import UserTabs from "@/components/layout/UserTabs";
 import {useProfile} from "@/components/UseProfile";
+import toast from "react-hot-toast";
 import {dbTimeForHuman} from "@/libs/datetime";
 import Link from "next/link";
 import {useEffect, useState} from "react";
@@ -25,10 +26,31 @@ export default function OrdersPage() {
     })
   }
 
+  async function handleDeleteClick(_id) {
+    const promise = new Promise(async (resolve, reject) => {
+      const response = await fetch('/api/orders?_id='+_id, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        resolve();
+      } else {
+        reject();
+      }
+    });
+
+    await toast.promise(promise, {
+      loading: 'Eliminando...',
+      success: 'Eliminado',
+      error: 'Error',
+    });
+
+    fetchOrders();
+  }
+
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs isAdmin={profile.admin} />
-      <div className="mt-8">
+      <div className="mt-8 overflow-y-scroll p-2" style={{maxHeight:'calc(100vh - 100px)'}}>
         {loadingOrders && (
           <div>Cargando ordenes...</div>
         )}
@@ -42,24 +64,28 @@ export default function OrdersPage() {
                   (order.paid ? 'bg-green-500' : 'bg-red-400')
                   + ' p-2 rounded-md text-white w-24 text-center'
                 }>
-                  {order.paid ? 'Pagado' : 'No pagado'}
+                  {order.paid ? 'Pagada' : 'No pagada'}
                 </div>
               </div>
               <div className="grow">
                 <div className="flex gap-2 items-center mb-1">
                   <div className="grow">{order.userEmail}</div>
-                  <div className="text-gray-500 text-sm">{dbTimeForHuman(order.createdAt)}</div>
                 </div>
                 <div className="text-gray-500 text-xs">
                   {order.cartProducts?.map(p => p.name).join(', ')}
+                  <br />
+                  {dbTimeForHuman(order.createdAt)}
                 </div>
               </div>
             </div>
             <div className="justify-end flex gap-2 items-center whitespace-nowrap">
               <Link href={"/orders/"+order._id} className="button">
-                Mostrar la orden
+                Ver
               </Link>
-            </div>
+              <DeleteButton
+                label="Eliminar"
+                onDelete={() => handleDeleteClick(order._id)} />
+            </div>  
           </div>
         ))}
       </div>

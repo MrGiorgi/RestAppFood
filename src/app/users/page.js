@@ -28,7 +28,7 @@ export default function UsersPage() {
   return (
     <section className="max-w-2xl mx-auto mt-8">
       <UserTabs isAdmin={true} />
-      <div className="mt-8">
+      <div className="mt-8 overflow-y-scroll p-2" style={{maxHeight:'calc(100vh - 100px)'}}>
         {users?.length > 0 && users.map(user => (
           <div
             key={user._id}
