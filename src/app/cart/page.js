@@ -87,7 +87,7 @@ export default function CartPage() {
         <SectionHeaders mainHeader="Carrito de pedidos" />
       </div>
       <div className="mt-8 grid gap-8 grid-cols-2">
-        <div>
+        <div className="overflow-y-scroll p-2" style={{maxHeight:'calc(100vh - 100px)'}}>
           {cartProducts?.length === 0 && (
             <div>No hay productos en su carrito de compras.</div>
           )}
