@@ -35,15 +35,13 @@ export function AppProvider({children}) {
   }
 
   function removeCartProduct(indexToRemove) {
-    console.log("IndexToRemove", indexToRemove)
     setCartProducts(prevCartProducts => {
-      console.log("prevCartProducts", prevCartProducts);
       const newCartProducts = prevCartProducts
-        .filter((v,indexToRemove) => indexToRemove);
+        .filter((v,index) => index !== indexToRemove);
       saveCartProductsToLocalStorage(newCartProducts);
       return newCartProducts;
     });
-    toast.success('Se ha removido correctamente.');
+    toast.success('Product removido correctamente.');
   }
 
   function saveCartProductsToLocalStorage(cartProducts) {
