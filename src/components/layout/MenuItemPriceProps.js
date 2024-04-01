@@ -63,7 +63,7 @@ export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
             <div>
               <button type="button"
                       onClick={() => removeProp(index)}
-                      className="bg-white mb-2 px-2">
+                      className="button-delete bg-white mb-2 px-2">
                 <Trash />
               </button>
             </div>

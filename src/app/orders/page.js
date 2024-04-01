@@ -82,7 +82,7 @@ export default function OrdersPage() {
               <Link href={"/orders/"+order._id} className="button">
                 Ver
               </Link>
-              <DeleteButton
+              <DeleteButton className="button-delete"
                 label="Eliminar"
                 onDelete={() => handleDeleteClick(order._id)} />
             </div>  

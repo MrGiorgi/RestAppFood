@@ -9,7 +9,7 @@ export default function DeleteButton({label,onDelete}) {
         <div className="bg-white p-4 rounded-lg">
           <div>¿Estás seguro de que quieres eliminar?</div>
           <div className="flex gap-2 mt-1">
-            <button type="button" onClick={() => setShowConfirm(false)}>
+            <button type="button" className="button" onClick={() => setShowConfirm(false)}>
               Cancelar
             </button>
             <button
@@ -18,7 +18,7 @@ export default function DeleteButton({label,onDelete}) {
                 setShowConfirm(false);
               }}
               type="button"
-              className="primary">
+              className="button-delete">
               Sí,&nbsp;eliminar!
             </button>
           </div>
@@ -28,7 +28,7 @@ export default function DeleteButton({label,onDelete}) {
   }
 
   return (
-    <button type="button" onClick={() => setShowConfirm(true)}>
+    <button className="button-delete" type="button" onClick={() => setShowConfirm(true)}>
       {label}
     </button>
   );
