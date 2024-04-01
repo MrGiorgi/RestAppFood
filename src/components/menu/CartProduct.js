@@ -34,7 +34,7 @@ export default function CartProducts({product,index,onRemove}) {
           <button
             type="button"
             onClick={() => onRemove(index)}
-            className="p-2">
+            className="button-delete p-2">
             <Trash />
           </button>
         </div>

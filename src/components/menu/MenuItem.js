@@ -129,7 +129,7 @@ export default function MenuItem(menuItem) {
                     Agregar al carrito ${selectedPrice}
                   </div>
                 </FlyingButton>
-                <button className="mt-2" onClick={() => setShowPopup(false)}>
+                <button className="button-  delete mt-2" onClick={() => setShowPopup(false)}>
                   Cancelar
                 </button>
               </div>
