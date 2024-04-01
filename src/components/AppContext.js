@@ -57,7 +57,7 @@ export function AppProvider({children}) {
       saveCartProductsToLocalStorage(newProducts);
       return newProducts;
     });
-    toast.success('El producto se ga agregado correctamente.');
+    toast.success('El producto ha sido agregado correctamente.');
   }
 
   return (

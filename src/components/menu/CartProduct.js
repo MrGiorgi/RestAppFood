@@ -13,19 +13,20 @@ export default function CartProducts({product,index,onRemove}) {
           {product.name}
         </h3>
         {product.size && (
-          <div className="text-sm">
+          <div className="mt- 2text-sm">
             Size: <span>{product.size.name}</span>
           </div>
         )}
+        <div className="text-gray-700">Ingredientes elegidos:</div>
         {product.extras?.length > 0 && (
-          <div className="text-sm text-gray-500">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 text-sm text-gray-90 bg-gray-200 rounded-md	">
             {product.extras.map(extra => (
-              <div key={extra.name}>{extra.name} ${extra.price}</div>
+              <div className="text-gray-900 p-2 m-3 border-b-4 border-green-500" key={extra.name}>{extra.name} ${extra.price}</div>
             ))}
           </div>
         )}
       </div>
-      <div className="text-lg font-semibold">
+      <div className="text-lg text-green-500 font-semibold">
         ${cartProductPrice(product)}
       </div>
       {!!onRemove && (

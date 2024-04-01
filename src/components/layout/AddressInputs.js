@@ -6,12 +6,12 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
       <input
         disabled={disabled}
         type="tel" placeholder="Número de TLFNO"
-        value={phone || ''} onChange={ev => setAddressProp('phone', ev.target.value)} />
+        value={phone || ''} onChange={ev => setAddressProp('phone', ev.target.value)} required />
       <label>Dirección</label>
       <input
         disabled={disabled}
         type="text" placeholder="Dirección"
-        value={streetAddress || ''} onChange={ev => setAddressProp('streetAddress', ev.target.value)}
+        value={streetAddress || ''} onChange={ev => setAddressProp('streetAddress', ev.target.value)} required
       />
       <div className="grid grid-cols-2 gap-2">
         <div>
@@ -19,7 +19,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
           <input
             disabled={disabled}
             type="text" placeholder="Código postal"
-            value={postalCode || ''} onChange={ev => setAddressProp('postalCode', ev.target.value)}
+            value={postalCode || ''} onChange={ev => setAddressProp('postalCode', ev.target.value)} required
           />
         </div>
         <div>
@@ -27,7 +27,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
           <input
             disabled={disabled}
             type="text" placeholder="Ciudad"
-            value={city || ''} onChange={ev => setAddressProp('city', ev.target.value)}
+            value={city || ''} onChange={ev => setAddressProp('city', ev.target.value)} required
           />
         </div>
       </div>
@@ -35,7 +35,7 @@ export default function AddressInputs({addressProps,setAddressProp,disabled=fals
       <input
         disabled={disabled}
         type="text" placeholder="País"
-        value={country || ''} onChange={ev => setAddressProp('country', ev.target.value)}
+        value={country || ''} onChange={ev => setAddressProp('country', ev.target.value)} required
       />
     </>
   );

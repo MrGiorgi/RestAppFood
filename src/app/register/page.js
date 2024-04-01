@@ -49,10 +49,10 @@ export default function RegisterPage() {
       <form className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input type="email" placeholder="email" value={email}
                disabled={creatingUser}
-               onChange={ev => setEmail(ev.target.value)} />
+               onChange={ev => setEmail(ev.target.value)} required />
         <input type="password" placeholder="Contraseña" value={password}
                disabled={creatingUser}
-                onChange={ev => setPassword(ev.target.value)}/>
+                onChange={ev => setPassword(ev.target.value)} required/>
         <button type="submit" disabled={creatingUser}>
           Registrarse
         </button>

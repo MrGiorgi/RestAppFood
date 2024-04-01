@@ -68,8 +68,8 @@ export default function MenuItemForm({onSubmit,menuItem}) {
                               addLabel={'Agregar tamaño del producto'}
                               props={sizes}
                               setProps={setSizes} />
-          <MenuItemPriceProps name={'Ingredientes adicionales'}
-                              addLabel={'Agregar precios de ingredientes'}
+          <MenuItemPriceProps name={'Ingredientes'}
+                              addLabel={'Agregar ingredientes'}
                               props={extraIngredientPrices}
                               setProps={setExtraIngredientPrices}/>
           <button type="submit">Guardar</button>
