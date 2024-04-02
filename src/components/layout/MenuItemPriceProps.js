@@ -6,7 +6,7 @@ import {useState} from "react";
 
 export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   function addProp() {
     setProps(oldProps => {
@@ -51,13 +51,15 @@ export default function MenuItemPriceProps({name,addLabel,props,setProps}) {
                      placeholder="Nombre del tamaño"
                      value={size.name}
                      onChange={ev => editProp(ev, index, 'name')}
+                     required
               />
             </div>
             <div>
-              <label>Precio adicional</label>
-              <input type="text" placeholder="Precio adicional"
+              <label>Precio del tamaño</label>
+              <input type="text" placeholder="Precio del tamaño"
                      value={size.price}
                      onChange={ev => editProp(ev, index, 'price')}
+                     required
               />
             </div>
             <div>

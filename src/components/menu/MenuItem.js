@@ -1,11 +1,17 @@
+'use client';
 import { CartContext } from "@/components/AppContext";
 import MenuItemTile from "@/components/menu/MenuItemTile";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import FlyingButton from "react-flying-item";
 import toast from "react-hot-toast";
+import { useSession } from "next-auth/react";  
 
 export default function MenuItem(menuItem) {
+  const session = useSession();
+
+  const status = session?.status;
+
   const { image, name, description, basePrice, sizes, extraIngredientPrices } =
     menuItem;
   const [selectedSize, setSelectedSize] = useState(sizes?.[0] || null);
@@ -46,7 +52,38 @@ export default function MenuItem(menuItem) {
     }
   }
 
+  function AuthLinks({ status }) {
+    if (status === "authenticated") {
+      return (
+        <>
+          <FlyingButton targetTop={"5%"} targetLeft={"95%"} src={image}>
+            <div
+              className="primary sticky bottom-2"
+              onClick={handleAddToCartButtonClick}
+            >
+              Agregar al carrito ${selectedPrice}
+            </div>
+          </FlyingButton>
+          <button
+            className="button-  delete mt-2"
+            onClick={() => setShowPopup(false)}
+          >
+            Cancelar
+          </button>
+        </>
+      );
+    }
+    if (status === "unauthenticated") {
+      return (
+        <>
+           <h4 className="bg-gray-200 text-center text-gray-900 text-sm rounded-md">Inicia sesión para tomar tu pedido.</h4>
+        </>
+      );
+    }
+  }
+
   return (
+
     <>
       {showPopup && (
         <div
@@ -69,9 +106,7 @@ export default function MenuItem(menuItem) {
                 className="mx-auto bg-gray-200 rounded-md"
               />
               <h2 className="text-lg font-bold text-center mt-4">{name}</h2>
-              <p className="text-center text-gray-500 text-sm">
-                {description}
-              </p>
+              <p className="text-center text-gray-500 text-sm">{description}</p>
               <h3 className="text-lg font-bold text-center p-4">
                 Elige el tamaño
               </h3>
@@ -121,17 +156,7 @@ export default function MenuItem(menuItem) {
                 </div>
               )}
               <div className="p-4">
-                <FlyingButton targetTop={"5%"} targetLeft={"95%"} src={image}>
-                  <div
-                    className="primary sticky bottom-2"
-                    onClick={handleAddToCartButtonClick}
-                  >
-                    Agregar al carrito ${selectedPrice}
-                  </div>
-                </FlyingButton>
-                <button className="button-  delete mt-2" onClick={() => setShowPopup(false)}>
-                  Cancelar
-                </button>
+              <AuthLinks status={status} />
               </div>
             </div>
           </div>
