@@ -24,10 +24,10 @@ export default function LoginPage() {
       <form className="max-w-xs mx-auto" onSubmit={handleFormSubmit}>
         <input type="email" name="email" placeholder="email" value={email}
                disabled={loginInProgress}
-               onChange={ev => setEmail(ev.target.value)} />
+               onChange={ev => setEmail(ev.target.value)} required />
         <input type="password" name="password" placeholder="Contraseña" value={password}
                disabled={loginInProgress}
-               onChange={ev => setPassword(ev.target.value)}/>
+               onChange={ev => setPassword(ev.target.value)} required/>
         <button disabled={loginInProgress} type="submit">Iniciar Sesión</button>
         <div className="my-4 text-center text-gray-500">
           Iniciar sesión con un proveedor
