@@ -11,7 +11,7 @@ const MenuItemSchema = new Schema({
   description: {type: String},
   category: {type: mongoose.Types.ObjectId},
   sizes: {type:[PriceSchema]},
-  extraIngredientPrices: {type:[PriceSchema]},
+  ingredients: {type:[PriceSchema]},
 }, {timestamps: true});
 
 export const MenuItem = models?.MenuItem || model('MenuItem', MenuItemSchema);
