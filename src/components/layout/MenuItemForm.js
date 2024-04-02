@@ -7,7 +7,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
   const [image, setImage] = useState(menuItem?.image || "");
   const [name, setName] = useState(menuItem?.name || "");
   const [description, setDescription] = useState(menuItem?.description || "");
-  const [sizes, setSizes] = usseState(menuItem?.sizes || []);
+  const [sizes, setSizes] = useState(menuItem?.sizes || []);
   const [category, setCategory] = useState(menuItem?.category || "");
   const [categories, setCategories] = useState([]);
   const [extraIngredientPrices, setExtraIngredientPrices] = useState(
