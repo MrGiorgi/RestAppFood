@@ -1,4 +1,3 @@
-
 import EditableImage from "@/components/layout/EditableImage";
 import MenuItemPriceProps from "@/components/layout/MenuItemPriceProps";
 import { useEffect, useState } from "react";
@@ -29,7 +28,6 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           image,
           name,
           description,
-          basePrice,
           sizes,
           extraIngredientPrices,
           category,
