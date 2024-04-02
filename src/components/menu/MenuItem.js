@@ -56,16 +56,14 @@ export default function MenuItem(menuItem) {
     if (status === "authenticated") {
       return (
         <>
-          <FlyingButton targetTop={"5%"} targetLeft={"95%"} src={image}>
-            <div
-              className="primary sticky bottom-2"
+            <button
+              className="button sticky bottom-2"
               onClick={handleAddToCartButtonClick}
             >
               Agregar al carrito ${selectedPrice}
-            </div>
-          </FlyingButton>
+            </button>
           <button
-            className="button-  delete mt-2"
+            className="button-delete mt-2"
             onClick={() => setShowPopup(false)}
           >
             Cancelar
@@ -125,7 +123,7 @@ export default function MenuItem(menuItem) {
                         name="size"
                         required
                       />
-                      {size.name} ${basePrice + size.price}
+                      {size.name} ${size.price}
                     </label>
                   ))}
                 </div>
