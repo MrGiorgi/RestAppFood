@@ -1,3 +1,4 @@
+
 import EditableImage from "@/components/layout/EditableImage";
 import MenuItemPriceProps from "@/components/layout/MenuItemPriceProps";
 import { useEffect, useState } from "react";
@@ -6,11 +7,11 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
   const [image, setImage] = useState(menuItem?.image || "");
   const [name, setName] = useState(menuItem?.name || "");
   const [description, setDescription] = useState(menuItem?.description || "");
-  const [sizes, setSizes] = useState(menuItem?.sizes || []);
+  const [sizes, setSizes] = usseState(menuItem?.sizes || []);
   const [category, setCategory] = useState(menuItem?.category || "");
   const [categories, setCategories] = useState([]);
-  const [ingredients, setingredients] = useState(
-    menuItem?.ingredients || []
+  const [extraIngredientPrices, setExtraIngredientPrices] = useState(
+    menuItem?.extraIngredientPrices || []
   );
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           description,
           basePrice,
           sizes,
-          ingredients,
+          extraIngredientPrices,
           category,
         })
       }
@@ -81,8 +82,8 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           <MenuItemPriceProps
             name={"Ingredientes"}
             addLabel={"Agregar ingredientes"}
-            props={ingredients}
-            setProps={setingredients}
+            props={extraIngredientPrices}
+            setProps={setExtraIngredientPrices}
           />
           <button type="submit">Guardar</button>
         </div>
