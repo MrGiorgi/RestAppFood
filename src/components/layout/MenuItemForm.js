@@ -2,10 +2,11 @@ import EditableImage from "@/components/layout/EditableImage";
 import MenuItemPriceProps from "@/components/layout/MenuItemPriceProps";
 import { useEffect, useState } from "react";
 
-export default function MenuItemForm({ onSubmit, menuItem }) {
+export default function MenuItemForm({ onSubmit, menuItem, disabled=true }) {
   const [image, setImage] = useState(menuItem?.image || "");
   const [name, setName] = useState(menuItem?.name || "");
   const [description, setDescription] = useState(menuItem?.description || "");
+  const [basePrice, setBasePrice] = useState(menuItem?.basePrice || "");
   const [sizes, setSizes] = useState(menuItem?.sizes || []);
   const [category, setCategory] = useState(menuItem?.category || "");
   const [categories, setCategories] = useState([]);
@@ -28,6 +29,7 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
           image,
           name,
           description,
+          basePrice,
           sizes,
           extraIngredientPrices,
           category,
@@ -70,6 +72,14 @@ export default function MenuItemForm({ onSubmit, menuItem }) {
                 </option>
               ))}
           </select>
+
+          <label>Base price</label>
+          <input
+            disabled={disabled}
+            type="text"
+            value={0}
+            onChange={(ev) => setBasePrice(ev.target.value)}
+          />
 
           <MenuItemPriceProps
             name={"Agrega tamaño y precio del producto"}
