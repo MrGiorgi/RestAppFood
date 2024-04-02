@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section className="hero md:mt-4">
-      <div className="py-8 md:py-12">
+      <div className="py-10 md:py-12">
         <h1 className="text-4xl font-semibold">
           Todo es mejor con una&nbsp;
           <span className="text-primary">
-            Hamburguesa
+            Hamburguesa!
           </span>
         </h1>
         <p className="my-6 text-gray-500 text-sm">
