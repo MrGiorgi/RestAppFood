@@ -13,7 +13,7 @@ export default function DeliverySection() {
           </span>
         </h1>
         <p className="my-6 text-gray-500 text-sm">
-          Contamos con delivery por toda la zona!
+          Contamos con delivery por toda la zona
         </p>
         <div className="flex gap-4 text-sm">
         <Link href={'/menu'}>
