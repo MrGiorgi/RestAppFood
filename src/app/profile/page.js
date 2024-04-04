@@ -54,13 +54,13 @@ export default function ProfilePage() {
 
   }
 
-  if (status === 'loading' || !profileFetched) {
-    return 'Cargando...';
+  if (status === 'unauthenticated') {
+    return redirect('/');
   }
 
-  if (status === 'unauthenticated') {
-    return redirect('/login');
-  }
+  if (status === 'loading' || !profileFetched) {
+    return 'Cargando...';
+  }  
 
   return (
     <section className="mt-8">
